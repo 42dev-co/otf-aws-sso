@@ -1,0 +1,43 @@
+stages:
+  - init
+  - plan
+  - apply
+
+variables:
+  SHARED_VOLUME: shared-volume
+  TF_IMAGE: ghcr.io/opentofu/opentofu
+  TF_VERSION: 1.8
+  INIT_IMAGE: docker
+  INIT_VERSION: latest
+
+
+plan-all-workspaces:
+  image: $TF_IMAGE:$TF_VERSION
+  stage: plan
+  variables:
+  script:
+    - mkdir -p ~/.aws
+    - cp "$AWS_CONFIG" ~/.aws/config  
+    - cp "$AWS_CREDENTIALS"  ~/.aws/credentials  
+    - ls -la ./ci_scripts
+    - ./ci_scripts/initiald.sh plan 
+  tags:
+    - default
+  only:
+    - merge_requests
+
+apply-all-workspaces:
+  image: $TF_IMAGE:$TF_VERSION
+  stage: apply
+  needs: ["plan-all-workspaces"]
+  when: manual
+  script:
+    - mkdir -p ~/.aws
+    - cp "$AWS_CONFIG" ~/.aws/config  
+    - cp "$AWS_CREDENTIALS"  ~/.aws/credentials  
+    - ls -la ./ci_scripts
+    - ./ci_scripts/initiald.sh apply 
+  tags:
+    - default
+  only:
+    - merge_requests

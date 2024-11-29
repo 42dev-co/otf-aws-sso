@@ -1,0 +1,16 @@
+terraform {
+  backend "s3" {
+    bucket = "s3.example.com"
+    key    = "{{ .KEY_PATH }}/state.tfstate"
+    region = "ap-southeast-1"
+    profile = "devops"
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
+variable "region" {
+  default = "ap-southeast-1"
+}

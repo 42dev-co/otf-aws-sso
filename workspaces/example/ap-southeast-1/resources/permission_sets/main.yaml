@@ -1,0 +1,6 @@
+AdministratorAccess:
+  description: Provides full access to AWS services and resources
+  session_duration: PT1H
+  managed_policies:
+    - AdministratorAccess
+

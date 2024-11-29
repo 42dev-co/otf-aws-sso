@@ -1,0 +1,7 @@
+ACCOUNT: management
+ACCOUNT_ID: "277074715781"
+REGION: ap-southeast-1
+PROJECT: otf-iac-aws-sso
+DOMAIN: 
+TIER: 2
+KEY_PATH: management/otf-iac-aws-sso/ap-southeast-1

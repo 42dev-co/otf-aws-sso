@@ -1,0 +1,10 @@
+Admin:
+  description: Administrators
+  accounts:
+    "123456789012":
+      permission_set: 
+        - AdministratorAccess
+  members:
+    - user@example.com
+
+

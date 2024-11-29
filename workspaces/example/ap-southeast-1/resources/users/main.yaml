@@ -1,0 +1,10 @@
+user@example.com:
+  email: user@example.com
+  name:
+    family_name: user
+    given_name: one
+  organization: example
+  tags:
+    effective_date: 21-Aug-24
+    ticket_id: N/A
+  title: Admin Account
