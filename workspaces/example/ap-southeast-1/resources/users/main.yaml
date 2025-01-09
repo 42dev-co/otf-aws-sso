@@ -8,3 +8,14 @@ user@example.com:
     effective_date: 21-Aug-24
     ticket_id: N/A
   title: Admin Account
+
+gavinyap@example.com:
+  email: gavinyap@example.com
+  name:
+    family_name: yap
+    given_name: gavin
+  organization: example
+  tags:
+    effective_date: 21-Aug-24
+    ticket_id: N/A
+  title: Admin Account
